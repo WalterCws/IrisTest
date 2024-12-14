@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iris", "..\Backend\Iris\Iris.csproj", "{7E7C92A9-311D-4F1D-B75B-EA12E23EDBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iris.Core", "..\Backend\Iris.Core\Iris.Core.csproj", "{7BF53BD3-087A-47D8-8F77-C12A42031BD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iris.Infraestructure", "..\Backend\Iris.Infraestructure\Iris.Infraestructure.csproj", "{9080EED7-C015-4937-BA9E-EEAF00A34877}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E7C92A9-311D-4F1D-B75B-EA12E23EDBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7C92A9-311D-4F1D-B75B-EA12E23EDBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7C92A9-311D-4F1D-B75B-EA12E23EDBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7C92A9-311D-4F1D-B75B-EA12E23EDBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF53BD3-087A-47D8-8F77-C12A42031BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF53BD3-087A-47D8-8F77-C12A42031BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF53BD3-087A-47D8-8F77-C12A42031BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF53BD3-087A-47D8-8F77-C12A42031BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9080EED7-C015-4937-BA9E-EEAF00A34877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9080EED7-C015-4937-BA9E-EEAF00A34877}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9080EED7-C015-4937-BA9E-EEAF00A34877}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9080EED7-C015-4937-BA9E-EEAF00A34877}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
