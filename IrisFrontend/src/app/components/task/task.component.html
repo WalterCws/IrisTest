@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <header>To do List</header>
+     
+    <div class="inputField">
+      <select  [(ngModel)]="selectedOption" 
+        id="categorySelect" 
+        class="form-select" 
+        aria-label="Default select example"
+        (change)="onSelectOption()">      
+        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="input-container-label">
+          <label class="labelContainer">
+            Do until
+          </label>    
+          <input type="date" id="deadlineAt" formControlName="deadlineAt" class="form-control"
+          [min]="today"/>
+        </div>        
+        <div class="input-container">
+          <input type="text" id="description" formControlName="description"
+            placeholder="Enter your task description"
+            [ngClass]="{'is-invalid': form.get('description')?.invalid && form.get('description')?.touched}"
+          >            
+          <span class="addIcon" (click)="onSubmit()"><i title="edit" class="fa-solid fa-plus"></i></span>
+        </div>
+    </form>
+    </div>
+    
+   
+
+    <h3>{{selectedOption}}</h3>
+
+    <ul class="todoList"> 
+      <div *ngIf="showTasks.length == 0">No existen tareas.</div>     
+      <li *ngFor="let task of showTasks">
+        <div class="itemList">
+          <input type="checkbox" [disabled]="task.isCompleted" [(ngModel)]="task.isCompleted" (change)="onCompleteTask(task)">
+          {{task.description}}
+        </div>        
+        <div class="icon">      
+          <span class="favouriteIcon" [ariaDisabled]="task.isFavourite" (click)="onFavouriteTask(task) "> 
+            <i title="favourite" 
+              [ngClass]="[task.isFavourite ? 'fa-solid fa-star': 'fa-regular fa-star' ]">
+            </i></span>
+          <span class="deleteIcon" (click)="onDeleteTask(task)"><i title="delete" class="fa-solid fa-x"></i></span>
+        </div>       
+      </li>
+    </ul>  
+  </div>

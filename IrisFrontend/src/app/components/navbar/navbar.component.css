@@ -1,0 +1,18 @@
+header {
+    height: 80px;
+    background-color: #30beb9;
+  }
+  
+  .nav-container {
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    max-height: 50px;
+    margin: 0 auto;
+  }
+  
