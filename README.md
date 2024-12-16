@@ -24,7 +24,9 @@ Para correr el proyecto de forma local debe contar con angular en su versión 18
 Sobre el path /IrisFrontend
 
 Restaurar dependencias: `npm install`
+
 Ejecutar aplicación `ng serve`. 
+
 Navegue http://localhost:4200
 
 ## 2) BackEnd 
@@ -60,6 +62,7 @@ Ejecute el archivo 'database-migration.sql' en su base de datos
 Sobre el path ./Backend/Iris
 
 Correr aplicación: dotnet run 
+
 Navegue a `http://localhost:5211/swagger/index.html`
 
 ## Anotaciones
