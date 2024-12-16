@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { TaskRequestDTO } from '../models/TaskRequestDTO';
 import { TaskDTO } from '../models/taskDTO';
 import { TaskRequestFavouriteDTO } from '../models/TaskRequestFavouriteDTO';
+import { ApiResponse } from '../models/ApiResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +19,11 @@ export class ApiService {
     email: 'waltercws@hotmail.com'
   };
   // Método para obtener los usuarios desde la API
-  getJWTToken(): Observable<any> {
-    return this.http.post(`${this.baseUrl}/api/v1/auth`, this.payload);  // Realiza la petición GET a la API
+  getJWTToken(): Observable<ApiResponse<string>> {
+    return this.http.post<ApiResponse<string>>(`${this.baseUrl}/api/v1/auth`, this.payload);  // Realiza la petición GET a la API
   }
 
   getAllTask(): Observable<any> {
-    console.log("imprimir " + localStorage.getItem('jwt'))
-
     return this.http.get(`${this.baseUrl}/api/v1/todo`,
       {
         headers: new HttpHeaders({
@@ -34,8 +33,8 @@ export class ApiService {
     );
   }
 
-  createTask(task: TaskRequestDTO): Observable<any> {   
-    return this.http.post(`${this.baseUrl}/api/v1/todo/`,task,
+  createTask(task: TaskRequestDTO): Observable<ApiResponse<number>> {   
+    return this.http.post<ApiResponse<number>>(`${this.baseUrl}/api/v1/todo/`,task,
       {
         headers: new HttpHeaders({
           Authorization:  `Bearer ${localStorage.getItem('jwt')}`,
@@ -44,8 +43,8 @@ export class ApiService {
     );
   }
 
-  completeTask(task: TaskDTO): Observable<any> {
-    return this.http.put(`${this.baseUrl}/api/v1/todo/${task.id}/done`,"",
+  completeTask(task: TaskDTO): Observable<ApiResponse<number>> {
+    return this.http.put<ApiResponse<number>>(`${this.baseUrl}/api/v1/todo/${task.id}/done`,"",
       {
         headers: new HttpHeaders({
           Authorization:  `Bearer ${localStorage.getItem('jwt')}`,
@@ -54,12 +53,12 @@ export class ApiService {
     );
   }
 
-  favouriteTask(task: TaskDTO): Observable<any> {
+  favouriteTask(task: TaskDTO): Observable<ApiResponse<number>> {
     const payload = {
       isFavourite: !task.isFavourite
     };
 
-    return this.http.put(`${this.baseUrl}/api/v1/todo/${task.id}/favourite`,payload,
+    return this.http.put<ApiResponse<number>>(`${this.baseUrl}/api/v1/todo/${task.id}/favourite`,payload,
       {
         headers: new HttpHeaders({
           Authorization:  `Bearer ${localStorage.getItem('jwt')}`,
@@ -68,8 +67,8 @@ export class ApiService {
     );
   }
   
-  deleteTask(task: TaskDTO): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/api/v1/todo/${task.id}`,
+  deleteTask(task: TaskDTO): Observable<ApiResponse<number>> {
+    return this.http.delete<ApiResponse<number>>(`${this.baseUrl}/api/v1/todo/${task.id}`,
       {
         headers: new HttpHeaders({
           Authorization:  `Bearer ${localStorage.getItem('jwt')}`,
