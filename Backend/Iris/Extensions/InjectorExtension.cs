@@ -21,6 +21,11 @@ namespace Iris.Extensions
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IValidator<UserDTO>,UserValidator>();
+            services.AddScoped<ITaskService,TaskService>();
+            services.AddScoped<ITaskRepository,TaskRepository>();
+            services.AddScoped<IValidator<TaskRequestDTO>, TaskRequestValidator>();
+            services.AddScoped<IValidator<TaskDTO>, TaskValidator>();
+
         }
     }   
 }

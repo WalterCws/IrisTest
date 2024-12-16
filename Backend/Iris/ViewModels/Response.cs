@@ -1,8 +1,7 @@
 ﻿namespace Iris.ViewModels
 {
-    public class ResultResponse
+    public class ResultResponse<T>
     {
-        public object Data { get; set; }
-        public string? Message { get; set; }
+        public T? Data { get; set; }
     }
 }

@@ -32,6 +32,17 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddAuthorization();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyAllowSpecificOrigins",
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin();
+                          policy.AllowAnyHeader();
+                          policy.AllowAnyMethod();
+                      });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -48,5 +59,6 @@ app.UseAuthorization();
 app.UseMiddleware<GlobalHandlerException>();
 
 app.AddEndpoints();
+app.UseCors("MyAllowSpecificOrigins");
 
 app.Run();
